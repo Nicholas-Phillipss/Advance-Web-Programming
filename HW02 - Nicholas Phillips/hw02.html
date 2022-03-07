@@ -1,0 +1,59 @@
+<!--Completed by Nicholas Phillips on Feburary 11, 2022.-->
+<!--The purpose of this assignment is to create a table to display the principle, interest rate, and 
+period. Next, given the values you must compute the compound interest using javascript.-->
+
+
+<!DOCTYPE html>
+<html lang ="en">
+<head>
+
+<!--Title of the wepage.-->
+<title>Simple loan</title>
+
+<meta charset="UTF-8">
+</head>
+<body> 
+<h1>Nicholas Phillips</h1>
+
+<!--The table to help organzie the prinicle, annual interest rate, and period-->
+<table border="1">
+<tr>
+    <!--Table headings.-->
+    <th>Parameter</th>
+    <th>Value</th>
+</tr>
+
+<tr>
+    <!--First table row.-->
+    <td>Principle</td>
+    <td>$3,000</td>
+</tr>
+
+<tr>
+    <!--Second table row.-->
+    <td>Annual Interest Rate</td>
+    <td>6%</td>
+</tr>
+
+<tr>
+    <!--Third table row.-->
+    <td>Period</td>
+    <td>5 years</td>
+</tr>
+</table>
+
+<script type="text/javascript">
+
+//Variables to compute the compound interest
+const principle = 3000, rate = 6, time = 5;
+
+//Total compound interest equation.
+let x = principle * (Math.pow((1+ rate / 100), time));  
+let CI = x - principle
+
+//Output of the total interest.
+document.write("Total interest: $" + CI.toPrecision(6)); 
+
+</script>
+</body>
+</html>

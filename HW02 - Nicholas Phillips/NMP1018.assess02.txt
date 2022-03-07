@@ -1,0 +1,34 @@
+CPSC 217 Homework 02 Grading                    
+
+Due date: 2:00 PM on 2/16/2022
+
+Name: Nicholas Phillips            Grade: ______ / 22
+
+
+  Problem Solving and Critical Thinking
+
+  _____ (2 pts) Correct Program
+ 
+  _____ (4 pts) HTML5 Structure
+
+  _____ (4 pts) Use of JavaScript expressions
+
+  _____ (2 pts) Display output in 2 decimal places
+
+
+  Communications (course objective 2)
+
+  _____ (1 pt)  Name on web page 
+
+  _____ (1 pt)  Title of the web page  
+
+  _____ (4 pts) Table and labels 
+
+  _____ (2 pts) Clean code - declaration of variables, meaningful variable names
+
+  _____ (2 pts) JavaScript comments
+
+
+Comments
+____________________________________________________________________
+
