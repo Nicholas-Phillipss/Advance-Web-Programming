@@ -1,0 +1,75 @@
+<!--
+Completed by Nicholas Phillips on March 4th, 2022 for Advance Web Programming.
+This course is taught by Dr. Hongbo Zhou.
+
+The purpose of this assignment is to calculate the BMI of the user. This program will take in
+valid integers and verify them. To take in the user's input we had to use a parseFloat to take in a string
+and return a floating point number. From there I created tables that would have an organized layout for the user 
+to input data. I created 3 text boxes as well a button to press. Once the button is pressed it will 
+read the function Calculate and then out the BMI in to the last text box on the screen. 
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BMI Calculator</title>
+<!--The purpose of this function is to check to see if the height, weight, and inches are 
+are numbers and then it will calculate the BMI of the user input-->
+    <script>
+        function Calculate(){
+        let height = parseFloat(document.getElementById("h-input").value);
+        let weight = parseFloat(document.getElementById("w-input").value);
+        let inches = parseFloat(document.getElementById("i-input").value);
+        if(isNaN(height&&weight&&inches))
+            alert("Error in the input");
+        if(height<0||weight<0||inches<0)
+            alert("Error in the input");
+        else{
+            let newHeight=parseFloat(height*12)+inches;
+            let result = ((weight)/(newHeight*newHeight));
+            let BMI = result*703;
+            document.getElementById("bmi-output").value = BMI.toFixed(1);
+        }
+    }
+    </script>
+
+</head>
+<body>
+    <!--Heading 1 tag-->
+    <h1>Nicholas Phillips</h1>
+    <!--Table set up for text boxes-->
+    <table>
+        <label>
+            <!--First text box that contains the user's height in feet and inches-->
+            <tr>
+                <td>Height: <input id="h-input" placeholder="Enter your height in feet: "> feet <br>
+                &emsp;&emsp;&emsp;&nbsp;<input placeholder="Enter your height in inches" id="i-input" size="20" name="inches"> inches</td>
+            </tr>
+        </label>
+        
+        <label>
+            <!--Second tax box that contains the user's weight in pounds-->
+            <tr>
+                <td>Weight:<input id="w-input" placeholder="Enter Your Weight in pounds: "> pounds</td>
+            </tr>
+        </label>
+        
+        <lable>
+            <!--Button that calls back the function Calculate once the button is clicked-->
+            <tr>
+                <td><button type="button" value="Get BMI" onclick="Calculate()">Get BMI:</button></td>
+            </tr>
+        </lable>
+
+        <lable>
+            <!--Third text box that calculates the user's BMI-->
+            <tr>
+                <td>BMI: <input id="bmi-output" placeholder="This will show the BMI" readonly></td>
+            </tr>
+        </lable>
+    </table>
+</body>
+</html>
+
+

@@ -1,0 +1,38 @@
+CPSC 217 Homework 03 Grading                    
+
+Due date: 2:00 PM on 3/11/2022
+
+Name: Nicholas Phillips              Grade: _____ / 32
+
+ Problem Solving and Critical Thinking (course objective 1)
+
+  _____ (2 pts) Correct Program 
+
+  _____ (6 pts) Input controls
+ 
+  _____ (2 pts) Use of event and event handler
+
+  _____ (3 pts) Access of user's input in JavaScript code
+
+  _____ (4 pts) Check user's input with conditional statement
+
+  _____ (5 pts) Use of JavaScript expressions
+
+
+ Communication (course objective 2)
+
+  _____ (1 pt)  Name on web page 
+
+  _____ (1 pt)  Title of the web page 
+
+  _____ (2 pts) Output of BMI with one decimal place 
+
+  _____ (2 pts) Table and labels
+
+  _____ (2 pts) Clean code - Indentation and meaningful Javascript Variable Names 
+
+  _____ (2 pts) JavaScript comments for documentation
+
+
+Comments
+____________________________________________________________________
