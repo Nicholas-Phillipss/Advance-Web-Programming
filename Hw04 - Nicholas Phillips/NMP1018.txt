@@ -1,0 +1,42 @@
+CPSC 217 Homework 04 Grading                    
+
+Due date:  2:00 PM on 4/8/2022
+
+Name:Nicholas Phillips              Grade: ______ / 32 
+
+ Problem Solving and Critical Thinking (course objective 1)
+
+  _____ (2 pts) Correct Program
+
+  _____ (2 pts) Use of image
+
+  _____ (6 pts) Use of input controls
+
+  _____ (4 pts) Use of event and event handler
+
+  _____ (2 pts) Access of user's input
+
+  _____ (2 pts) Use of timer-related methods
+
+  _____ (2 pts) Use of Array object
+
+  _____ (2 pts) Access of image object and its property
+
+
+ Communication (course objective 2)
+
+  _____ (1 pt)  Title of webpage
+
+  _____ (1 pt)  Name on webpage
+
+  _____ (2 pts) Programming style (indentation, and meaningful Javascript identifiers)
+
+  _____ (2 pts) JavaScript/HTML comments for documentation
+
+  _____ (4 pts) The URLs of the images (course objective 3)
+
+
+Comments
+___________________________________________________
+
+

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Slide Show</title>
+    
+    <script>
+
+      let i = 0; //Loop control variable 
+      let images = [];
+
+      let myTimer;
+   
+      images[0] = '1.webp'; //photo 1   https://cdn.pixabay.com/photo/2014/02/03/08/04/bee-257176__340.jpg
+      images[1] = '2.webp'; //photo 2   https://cdn.pixabay.com/photo/2016/10/09/19/39/bee-1726659__340.jpg
+      images[2] = '3.webp'; //photo 3   https://cdn.pixabay.com/photo/2013/08/07/20/13/bee-170551_1280.jpg
+      images[3] = '4.webp'; //photo 4   https://cdn.pixabay.com/photo/2022/03/20/14/41/bee-7081014__340.jpg
+   
+
+      function changeImg() {
+      
+      document.slide.src = images[i];
+     
+        //Loop to go through all the photos for the slide show
+        if (i < images.length - 1 ){
+          i++;
+        } else {
+          i = 0;
+        }
+
+        
+        let speedControl = document.getElementById('speed').value;
+
+      
+       
+        //if statement for the different speeds of the slide show
+        if (speedControl=='slow') {
+        myTimer = setTimeout('changeImg()', 5000);
+        }
+
+        else if (speedControl=='medium') {
+        myTimer = setTimeout('changeImg()', 3000);
+        }
+
+        else if (speedControl=='fast') {
+    
+        myTimer = setTimeout('changeImg()', 1000);
+      }
+
+      //Counts the image in the console to see what picture is being looped through
+      console.log(i);
+     
+    }
+
+    function stopSlideShow() {
+        clearTimeout(myTimer);
+
+    }
+
+     </script>
+
+</head>
+
+<body>
+
+  <h1>Nicholas Phillips</h1> <!-- Webpage heading. -->
+  <table>
+    <tr><img src ="1.webp" name ="slide" width="200" height="200"></tr> <!-- Controls the size of the images and starts with image 1.webp. -->
+    <br> <!-- Break in the html page. -->
+    <tr><input type="Button" value="Start" onclick="changeImg()"></button>&nbsp; <!-- Start button. -->
+    <input type="Button" id="stop" value="Stop" onclick="stopSlideShow()"></button>&nbsp; <!-- Stop button. -->
+
+      <!-- Drop down menu with the options of slow, medium, and fast. -->
+      <label for="speed">Speed: </label>
+      <select name="speed" id="speed">
+      <option value="slow">Slow</option> <!-- 5 seconds-->
+      <option value="medium">Medium</option> <!-- 3 seconds -->
+      <option value="fast" >Fast</option> <!-- 1 seconds -->
+      </select>
+    </tr>
+  </table>
+</body>
+</html>
