@@ -1,0 +1,34 @@
+CPSC 217 Homework 05 Grading                    
+
+Due date: 2:00 PM on 4/18/2022
+
+Name:Nicholas Phillips               Grade: ______ / 30 
+
+  Problem Solving and Critical Thinking (course objective 1)
+
+  _____ (3 pts)  Correct Program 
+
+  _____ (7 pts)  Selection lists and options
+
+  _____ (2 pts)  Use of event and event handler
+
+  _____ (2 pts)  Access of controls and values in JavaScript code
+
+  _____ (10 pts) Use of DOM API to create/append/delete option elements in the 2nd selection list
+
+
+ Communication (course objective 2)
+ 
+  _____ (1 pt)   Name on web page 
+
+  _____ (1 pt)   Fieldset and legend
+
+  _____ (2 pts)  Programming style (clean code, indentation, and meaningful Javascript identifiers)
+
+  _____ (2 pts)  Javascript comments
+
+
+Comments
+____________________________________________________________________
+
+

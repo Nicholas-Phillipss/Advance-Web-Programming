@@ -1,0 +1,77 @@
+<!--
+
+    Created by Nicholas Phillips on April 12th, 2022.
+
+    The purpose of this assignment is to get a better and deeper understanding of drop down menu selection list.
+    This assignment should also help with learning memory and understanding of the document object model. For my
+    solution, I used jQuery to write a function using an if statement to validate the return attribute. If the program does
+    not equal the variable val, it hide the options presented to the user depending on if the user selects United States
+    or Cananda. 
+
+-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Homework 5</title> <!--Title of the page.-->
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script>
+//https://www.w3schools.com/jquery/jquery_ref_html.asp and https://api.jquery.com/
+//I took references of the jQuery methods and function.
+$(function(){
+    $('#USAcanada').on('change', function(){
+        var val = $(this).val(); //Returns the value attribute
+        var places = $('#statesProvinces'); //Gets the id for the states and provinces.
+        //Checks if the val attribute is equal to all for the drop down menu.
+        if(val == '--All--') {
+            $('#statesProvinces').find('option').show();
+        }
+        else {
+            places.find('option').not(':first').hide();
+            $('option', places).filter(function(){
+                if($(this).attr('data') == val){
+                    $(this).show();
+                }
+            });
+        }
+        //Select options for the cities and provinces comes up
+        places.val(0);
+    });
+});
+
+</script>
+
+
+</head>
+<body>
+    <h1>Nicholas Phillips</h1> <!--Heading on the page.-->
+    <form>
+        <fieldset> <!--Completes a box around the text within the feildset tag.-->
+          <legend>Address</legend> <!--Places the word address around the feildset box.-->
+            
+          <!--Drop down menu for the countries-->
+          <select name="Country" id="USAcanada">
+                <option value='--All--'>--All--</option>
+                <option value="US">United States</option>
+                <option value="Can">Canada</option>
+            </select>
+
+            &nbsp;
+    
+            <!--Drop down menu for the states and provinces.-->
+            <select name="Places" id="statesProvinces">
+                <option data='all' value='0'>--Select--</option>
+                <option data="US" value="NY">New York</option>
+                <option data="US" value="PA">Pennsylvania</option>
+                <option data="US" value="OH">Ohio</option>
+                <option data="Can" value="OT">Ontario</option>
+                <option data="Can" value="QB">Quebec</option>
+                <option data="Can" value="AB">Alberta</option>
+            </select>
+        </fieldset>
+      </form>
+</body>
+</html>
