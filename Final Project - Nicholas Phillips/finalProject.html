@@ -1,0 +1,286 @@
+<!--
+    Created by Nicholas Phillips on April 29th, 2022 for Advance Web Programming. 
+
+    The purpose of this assignment is for students to implement the use of randomization,
+    graphic elements, and timer all into one program. For my assignment, there is a start button and a reset button.
+    By pressing the start button, a timer will begin to countdown from 30 seconds until 0. About every 1-2 seconds,
+    a munch will appear. By clicking on the munch as many times as possible, the user will be granted points. Once 30
+    seconds is up, the program will end. At any point, press the reset button, and the game will begin again.
+
+    Notes: Sometimes the munch will appear in the same location twice, make sure to click more on the once on the munch to max out the amount of points you score.
+
+
+    munch.webp = https://www.google.com/imgres?imgurl=https%3A%2F%2Fdinosaurroar.com%2Fwp-content%2Fthemes%2Fdinosaurroar%2Fimages%2Fheadshot_whack.png&imgrefurl=https%3A%2F%2Fdinosaurroar.com%2Fdinosaurs%2F&tbnid=hKK0w0ig5ZmcWM&vet=12ahUKEwiS35CbwbL3AhV7g3IEHaoXBlgQMygAegQIARAl..i&docid=pcH54DW77-eHfM&w=300&h=300&q=hotel%20grand%20riviera%20princess&hl=en&ved=2ahUKEwiS35CbwbL3AhV7g3IEHaoXBlgQMygAegQIARAl
+    dirt.png = https://lh3.googleusercontent.com/GbhYaLVJiPRaFVhfqDx0M-l9tRssmcjj0MsuZHGlzs1PWnywymRQOJai4u94VIYTfTAWqw=s170
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Whack a Munch</title>
+
+    <!--
+
+        This is the css layout of my whack a munch game. I took reference of my layout by using a mix 
+        of whack a munch from Chuck E. Cheese and whack a mole. 
+
+    -->
+
+    <!-- Uses a website to allow the cursor to become a hammer to add a more visual affect. -->
+    <style type="text/css">* {cursor: url(https://cur.cursors-4u.net/others/oth-5/oth435.cur), auto !important;}</style>
+    <style>
+        body,html{
+            height: 100%;
+            font-family: sans-serif;
+            font-size:18px;
+            cursor:move;
+            background-color: brown;
+        }
+        .munchLayout{
+            max-width: 800px;
+            width: 400%;
+            margin: 0 auto;
+            background: #fff;
+        }
+        .grid > div{
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+        }
+        img{
+            max-width: 100%;
+            width:100%;
+            height: auto;
+        }
+        .square{
+            width: 25%;
+            position: relative;
+        }
+        .hole{
+            position: absolute;
+            left: 0;
+            bottom: 0.2em;
+        }
+        .name-header {
+            padding:0.5em;
+            font-family: 'Times New Roman', Times, serif;
+            letter-spacing: 1px;
+            position: absolute;
+            top: 8px;
+            right: 16px;
+            font-size: 18px;
+        }
+        .title-header, .timer-header,.title-score,.instruction-header,.instruction{
+            padding:0.5em;
+            font-family: 'Times New Roman', Times, serif;
+            letter-spacing: 1px;
+            text-align: center;
+            margin-bottom: .3em;
+        }
+        .timer,.score,.munch{
+            padding:0.3em 0.5em;
+            border-radius: 50%;
+        }
+        .control-container{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        button{
+            padding: .5em 1.3em;
+            margin: .2em;
+            font-size: Irem;
+            border-radius:300px;
+            outline:none;
+
+        }
+        .start{
+            background:rgb(27, 169, 30);
+        }
+        .reset{
+            background:rgb(200, 38, 38);
+        }
+        button:hover{
+            color: #ddd;
+        }
+        .munch{
+            transform: scale(1,0);
+        }
+        .movingMunch{
+            transform: scale(1,1);
+            transform-origin: bottom;
+            transition: transform .4s linear;
+        }
+    </style>
+</head>
+<body>
+
+    <!--Game name, my name, instructions, timer, score -->
+    <div class="munchLayout">
+        <h1 class="title-header">Whack a Munch</h1>
+        <h2 class="name-header">Designed by Nicholas Phillips</h2>
+        <h1 class="instruction-header">Instructions:</h1>
+        <h3 class="instruction">The objective of the game is to get as many points as possible by clicking on the Munch. Hover over the munch and once it appears click on the munch.
+        Below lies a start button and reset. Clicking on the reset button the game will end or restart a new one. By clicking on start button, the game will begin. Good Luck!</h3>
+        <h2 class="timer-header">Timer<span class="timer">30</span></h2>
+        <h2 class="title-score">Score<span class="score">0</span></h2>
+
+        <!-- 3x3 grid where the munch has an opportunity to display -->
+        <div class="grid">
+
+            <!--First row of three-->
+            <div class="row">
+                <div class="square">
+                    <img src="munch.webp" class="munch" alt="Picture of the munch" id="1">
+                    <img src="dirt.png" class="hole" alt="Picture of the hole">
+                </div>
+
+                <div class="square">
+                    <img src="munch.webp" class="munch" alt="Picture of the munch" id="2">
+                    <img src="dirt.png" class="hole" alt="Picture of the hole">
+                </div>
+
+                <div class="square">
+                    <img src="munch.webp" class="munch" alt="Picture of the munch" id="3">
+                    <img src="dirt.png" class="hole" alt="Picture of the hole">
+                </div>
+
+            </div>
+
+            <!--Second row of three-->
+            <div class="row">
+                <div class="square">
+                    <img src="munch.webp" class="munch" alt="Picture of the munch" id="4">
+                    <img src="dirt.png" class="hole" alt="Picture of the hole">
+                </div>
+
+                <div class="square">
+                    <img src="munch.webp" class="munch" alt="Picture of the munch" id="5">
+                    <img src="dirt.png" class="hole" alt="Picture of the hole">
+                </div>
+
+                <div class="square">
+                    <img src="munch.webp" class="munch" alt="Picture of the munch" id="6">
+                    <img src="dirt.png" class="hole" alt="Picture of the hole">
+                </div>
+
+            </div>
+
+
+            <!--Third row of three-->
+            <div class="row">
+                <div class="square">
+                    <img src="munch.webp" class="munch" alt="Picture of the munch" id="7">
+                    <img src="dirt.png" class="hole" alt="Picture of the hole">
+                </div>
+
+                <div class="square">
+                    <img src="munch.webp" class="munch" alt="Picture of the munch" id="8">
+                    <img src="dirt.png" class="hole" alt="Picture of the hole">
+                </div>
+
+                <div class="square">
+                    <img src="munch.webp" class="munch" alt="Picture of the munch" id="9">
+                    <img src="dirt.png" class="hole" alt="Picture of the hole">
+                </div>
+
+            </div>
+
+            
+        </div>
+        <div class="control-container">
+            <button class="start">Start</button>
+            <button class="reset">Reset</button>
+        </div>
+
+    </div>
+
+    <script>
+
+        //jQuery variables
+        let munch = document.querySelectorAll(".munch"); //returns all elements
+        let scoreContainer=document.querySelector(".score"); //returns first element
+        let timerContainer=document.querySelector(".timer"); //returns first element
+        let MrMunch=document.querySelector(".munch"); //returns first elements
+
+        let counter=timerContainer.textContent;
+
+        //JS variables
+        let random; //generate munch
+        let hitPosition;
+        let score = 0;
+        let count = 0;
+        let interval; //timer
+
+        //converts an argument into an array
+        //Reference: https://medium.com/@andrewsburke/array-prototype-slice-call-arguments-a94b04e74a4
+        let munchArray=Array.prototype.slice.call(munch); 
+
+        //uses the click function and everytime a munch is clicked on, it will add 1 points to the total score
+        function gameScore(){
+            munchArray.forEach(x => {
+                x.addEventListener("click",function(){
+                    if(hitPosition == x.id){
+                        score++;
+                        scoreContainer.textContent=score;
+                        hitPosition = null;
+                        
+                    }
+                })
+            })
+
+        }
+
+        //calls back to the renderGame and renderTime function.
+        function loadAdd() {
+            munchGame();
+            Timer();
+        }
+
+        //Uses to prompt the start of the game, it will be active when the user presses the start button to load the update function
+        function munchGame() {
+            munchArray.forEach(x => {
+                x.classList.remove("movingMunch");
+            });
+
+            //uses the random generator for the munch to be displayed in different locations
+            //Reference: https://www.w3schools.com/js/js_random.asp
+            random=Math.floor(Math.random()*munchArray.length);
+            munchArray[random].classList.add("movingMunch");
+            hitPosition=munchArray[random].id;
+        }
+
+        //Call to the function
+        gameScore();
+
+
+        //Counts down the time for the game to end
+        function Timer() {
+            if(counter>0) {
+                counter--; //-1 from each second
+                timerContainer.textContent=counter;
+            }
+            else{
+                clearInterval(interval); //clears the time interval
+                munchArray[random].classList.remove("movingMunch"); //removes the class list from movingMunch in the css. Stops the munch from displaying
+            }
+
+        }
+
+        //Uses the function update to call back the renderGame and renderTime function to 
+        //make the start button load the game
+        document.querySelector(".start").addEventListener("click",function(){
+            if(!interval){
+                interval=setInterval(loadAdd, 1000);
+            }
+        })
+
+        //Will reload the current page from the server
+        //Reference https://www.geeksforgeeks.org/html-dom-location-reload-method/
+        document.querySelector(".reset").addEventListener("click", function() {
+            location.reload();
+        });
+    </script>
+</body>
+</html>

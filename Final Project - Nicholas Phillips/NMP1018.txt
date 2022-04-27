@@ -1,0 +1,43 @@
+CPSC 217 Project Grading                    
+
+Due date: 2:00 PM on 5/2/2022
+
+Name:              Grade:  / 100
+
+
+ Problem Solving and Critical Thinking (course objective 1)
+
+  _____ (10 pts) Correct program
+
+  _____ (10 pts) User input directing animation
+
+  _____ (10 pts) Use of events and event handlers
+
+  _____ (10 pts) Access to objects and their properties/attributes
+
+  _____ (5 pts)  Use of random numbers
+
+  _____ (10 pts) Update of graphic elements
+
+  _____ (10 pts) Timer-related processing
+
+
+ Communication  (course objective 2)
+
+  _____ (5 pts)  Game name and your name on web page
+
+  _____ (5 pts)  Game instructions
+
+  _____ (5 pts)  Use of images and other graphical elements
+
+  _____ (5 pts)  Formatting and layout of text, images and other graphical elements
+ 
+  _____ (5 pts)  Programming style (variable declaration, meaningful identifieres, and indentation)
+ 
+  _____ (5 pts)  JavaScript documentation 
+
+  _____ (5 pts)  Creativity/complexity
+
+
+Comments
+____________________________________________________________________
